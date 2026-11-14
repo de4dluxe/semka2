@@ -10,6 +10,7 @@ bool handleChain(const std::string& cmd, json& db, const std::string& name, Args
 bool handleCuckoo(const std::string& cmd, json& db, const std::string& name, Args& args);     // задание 6.1
 bool handleGenealogy(const std::string& cmd, json& db, const std::string& name, Args& args);  // задание 6.2
 bool handleLFU(const std::string& cmd, json& db, const std::string& name, Args& args);        // задание 7
+void compareHash();
 
 inline json* openObject(json& db, const std::string& name, const char* type, bool create) {
     json* data = openData(db, name, type, create);

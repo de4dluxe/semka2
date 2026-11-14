@@ -104,6 +104,8 @@ static void execute(json& db, const std::string& fileName, const std::string& qu
     } else if (TASKS.count(word) > 0) {
         std::string name = readWord(args, "имя структуры");
         changed = runTask(TASKS.at(word), word, db, name, args);
+    } else if (word == "HASHCOMPARE") {
+        compareHash();
     } else {
         changed = runLab1(word, db, args);
     }
@@ -123,6 +125,7 @@ static void printHelp() {
                  "  Хаффман (5):       HUFFENC имя текст, HUFFDEC имя, HUFFPRINT имя\n"
                  "  хеш (6.1):         CHSET/CKSET имя ключ число, CHGET/CKGET имя ключ,\n"
                  "                     CHDEL/CKDEL имя ключ, CHPRINT/CKPRINT имя (CH - цепочки, CK - кукушка)\n"
+                 "                     HASHCOMPARE - сравнение методов\n"
                  "  родословная (6.2): GADD имя потомок родитель, GRUN имя, GPRINT имя\n"
                  "  LFU-кэш (7):       LFUINIT имя ёмкость, LFUSET имя ключ значение, LFUGET имя ключ, LFUPRINT имя\n"
                  "Лаба 1: команды структур (MPUSH, SPUSH, QPUSH, TINSERT и другие), PRINT имя\n"
