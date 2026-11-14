@@ -1,7 +1,3 @@
-// Лабораторная 2. Одна программа для всех заданий, устроена как main из лабы 1.
-//   ./lab2 --file data.json --query 'SETADD s 5'    один запрос
-//   ./lab2 --file data.json                          команды с клавиатуры
-// Команды лабы 1 (массив, списки, стек, очередь, дерево) тоже работают.
 #include <fstream>
 #include <map>
 #include "array.h"
@@ -47,7 +43,6 @@ static bool runTask(Task task, const std::string& word, json& db, const std::str
     return false;
 }
 
-// PRINT <имя> для структур лабы 1
 static bool printLab1(json& db, const std::string& name, Args& args) {
     std::string type = db[name].value("type", "");
     if (type == "array") return handleArray(Cmd::MPRINT, db, name, args);
@@ -59,7 +54,6 @@ static bool printLab1(json& db, const std::string& name, Args& args) {
     throw DbError("неизвестный тип структуры: " + type);
 }
 
-// Команды лабы 1
 static bool runLab1(const std::string& word, json& db, Args& args) {
     CmdInfo info;
     if (!lookupCommand(word, info)) {
